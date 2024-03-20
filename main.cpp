@@ -23,19 +23,19 @@ int main() {
     cout << "Object 2: " << i2 << endl;
     cout << "Object 3: " << i3 << endl;
 
-    cout << "Power of Object 1: " << i1.power() << endl;
+    cout << "Power of Object 1: " << (i1 ^ i1) << endl;
 
     IntPower i4 = makeIntPower(5.0, 4);
     cout << "Object 4: " << i4 << endl;
 
     ++i1;
-    cout << "After prefix increment: " << i1.ToString() << endl;
+    cout << "After prefix increment: " << i1 << endl;
     i1++;
-    cout << "After postfix increment: " << i1.ToString() << endl;
+    cout << "After postfix increment: " << i1 << endl;
     --i1;
-    cout << "After prefix decrement: " << i1.ToString() << endl;
+    cout << "After prefix decrement: " << i1 << endl;
     i1--;
-    cout << "After postfix decrement: " << i1.ToString() << endl;
+    cout << "After postfix decrement: " << i1 << endl;
 
     cout << "Size of IntPower without #pragma pack(1): " << sizeof(IntPower) << endl;
 

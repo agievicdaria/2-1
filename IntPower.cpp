@@ -26,9 +26,8 @@ void IntPower::setSecond(int exponent) {
     second = exponent;
 }
 
-double IntPower::power() const
-{
-    return pow(first, second);
+double operator^(const IntPower& number, const IntPower& exponent) {
+    return pow(number.first, exponent.second);
 }
 
 istream& operator>>(istream& in, IntPower& obj) {
@@ -40,7 +39,7 @@ istream& operator>>(istream& in, IntPower& obj) {
 }
 
 ostream& operator<<(ostream& out, const IntPower& obj) {
-    out << "Base: " << obj.first << ", Exponent: " << obj.second;
+    out << string(obj);
     return out;
 }
 
@@ -66,8 +65,15 @@ IntPower IntPower::operator--(int) {
     return i;
 }
 
-string IntPower::ToString() const {
-    stringstream sout;
-    sout << "Base: " << first << ", Exponent: " << second;
-    return sout.str();
+IntPower::operator string () const {
+    stringstream ss;
+    ss << " Base = " << first << endl;
+    ss << " Exponent = " << second << endl;
+    return ss.str();
+}
+
+IntPower& IntPower::operator= (const IntPower& i) {
+    first = i.first;
+    second = i.second;
+    return *this;
 }
